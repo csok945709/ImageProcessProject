@@ -32,6 +32,21 @@ class uploadImageController extends Controller
     public function rotate(){
         // Here Need GEt IMG FROM STORAGE AND MAKE ROTATE AND SAVE
         
-        return view('index', compact('store'));
+        $img = Images::latest('created_at', 'desc')->first()->image;
+        
+        $image = Image::make(public_path("/storage/{$img}"));
+        $rotateImg = $image->flip('v');;
+        $rotateImg->save();
+      
+        // dd($rotateImg);
+        // // rotate image 45 degrees clockwise
+        
+        // //Save Image
+        // $imagePath = $rotateImg->store('image','public');
+        // $image = Image::make(public_path("/storage/{$imagePath}"));
+        
+        
+        $Imageurl = Images::latest()->first()->image;
+        return view('index', compact('Imageurl'));
     }
 }
