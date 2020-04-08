@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'uploadImageController@index')->name('index');
+
+Route::post('/upload', 'uploadImageController@store')->name('store');
+//Rotate Image
+Route::get('/rotate', 'uploadImageController@rotate')->name('rotate');
