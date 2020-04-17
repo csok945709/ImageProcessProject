@@ -23,14 +23,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">New <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Save As</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">View</a>
+                  <a class="nav-link" href="{{ route('default') }}">Original Image</a>
                 </li>
               </ul>
             </div>
@@ -42,12 +36,13 @@
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                           <h5 class="card-title">Editor Tools</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                          <a href="{{ route('rotate') }}"><li class="list-group-item">Flip</li></a>
-                          <li class="list-group-item">Rotate</li>
-                          <li class="list-group-item">Resize</li>
+                          <a href="{{ route('flip') }}"><li class="list-group-item">Flip</li></a>
+                          <a href="{{ route('brightness') }}"><li class="list-group-item">Brightness</li></a>
+                          <a href="{{ route('darkness') }}"><li class="list-group-item">Darkness</li></a>
+                          <a href="{{ route('contrast') }}"><li class="list-group-item">Contrast</li></a>
+                          <a href="{{ route('blur') }}"><li class="list-group-item">Blur</li></a>
                         </ul>
                       </div>
                 </div>
@@ -65,8 +60,11 @@
                       </div>
                       <button class="btn btn-primary">Upload Image Button</button>
                       </form>
-                   
-                    <img src="/storage/{{ $Imageurl }}" width="100%" height="auto" style="margin-top:10px;"/>
+                      @if ($Imageurl !== null)
+                        <img src="/storage/image/{{ $Imageurl }}" width="100%" height="auto" style="margin-top:10px;"/>
+                      @else
+                        <img src="https://muaythaiauthority.com/wp-content/uploads/2014/10/default-img.gif" width="100%" height="auto" style="margin-top:10px;"/>
+                      @endif
                     
                 </div>
             </div>
