@@ -87,4 +87,36 @@ class uploadImageController extends Controller
         $image->blur(15)->save();
         return redirect('/');
     }
+
+    public function greyscale(){        
+        $img = Images::latest('created_at', 'desc')->first()->image;
+        $image = Image::make(public_path("/storage/image/{$img}"));
+        //greyscale the image
+        $image->greyscale()->save();
+        return redirect('/');
+    }
+
+    public function invert(){        
+        $img = Images::latest('created_at', 'desc')->first()->image;
+        $image = Image::make(public_path("/storage/image/{$img}"));
+        //greyscale the image
+        $image->invert()->save();
+        return redirect('/');
+    }
+
+    public function sharpen(){        
+        $img = Images::latest('created_at', 'desc')->first()->image;
+        $image = Image::make(public_path("/storage/image/{$img}"));
+        //greyscale the image
+        $image->sharpen(100)->save();
+        return redirect('/');
+    }
+
+    public function widen(){        
+        $img = Images::latest('created_at', 'desc')->first()->image;
+        $image = Image::make(public_path("/storage/image/{$img}"));
+        //greyscale the image
+        $image->widen(300)->save();
+        return redirect('/');
+    }
 }

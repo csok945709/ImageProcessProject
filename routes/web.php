@@ -23,4 +23,8 @@ Route::get('/darkness', 'uploadImageController@darkness')->name('darkness');
 Route::get('/contrast', 'uploadImageController@contrast')->name('contrast');
 Route::get('/default', 'uploadImageController@default')->name('default');
 Route::get('/blur', 'uploadImageController@blur')->name('blur');
+Route::get('/greyscale', 'uploadImageController@greyscale')->name('greyscale');
+Route::get('/invert', 'uploadImageController@invert')->name('invert');
+Route::get('/sharpen', 'uploadImageController@sharpen')->name('sharpen');
+Route::get('/widen', 'uploadImageController@widen')->name('widen');
 

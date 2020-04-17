@@ -43,6 +43,10 @@
                           <a href="{{ route('darkness') }}"><li class="list-group-item">Darkness</li></a>
                           <a href="{{ route('contrast') }}"><li class="list-group-item">Contrast</li></a>
                           <a href="{{ route('blur') }}"><li class="list-group-item">Blur</li></a>
+                          <a href="{{ route('greyscale') }}"><li class="list-group-item">Greyscale</li></a>
+                          <a href="{{ route('invert') }}"><li class="list-group-item">Invert</li></a>
+                          <a href="{{ route('sharpen') }}"><li class="list-group-item">Sharpen</li></a>
+                          <a href="{{ route('widen') }}"><li class="list-group-item">Widen</li></a>
                         </ul>
                       </div>
                 </div>
@@ -50,7 +54,7 @@
                  
                       <form action="/upload" enctype="multipart/form-data" method="POST">
                         @csrf
-                        <div class="row">
+                        <div class="row" style="display: inline-block">
                           <input type="file" class="form-control-file @error('image') is-invalid @enderror" id="image" name="image">
                           @error('image')
                               <span class="invalid-feedback" role="alert">
@@ -58,7 +62,7 @@
                               </span>
                           @enderror
                       </div>
-                      <button class="btn btn-primary">Upload Image Button</button>
+                      <button class="btn btn-success">Upload Image Button</button>
                       </form>
                       @if ($Imageurl !== null)
                         <img src="/storage/image/{{ $Imageurl }}" width="100%" height="auto" style="margin-top:10px;"/>
