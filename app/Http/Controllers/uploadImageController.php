@@ -99,7 +99,7 @@ class uploadImageController extends Controller
     public function invert(){        
         $img = Images::latest('created_at', 'desc')->first()->image;
         $image = Image::make(public_path("/storage/image/{$img}"));
-        //greyscale the image
+        //invert the image
         $image->invert()->save();
         return redirect('/');
     }
@@ -107,7 +107,7 @@ class uploadImageController extends Controller
     public function sharpen(){        
         $img = Images::latest('created_at', 'desc')->first()->image;
         $image = Image::make(public_path("/storage/image/{$img}"));
-        //greyscale the image
+        //sharpen the image
         $image->sharpen(100)->save();
         return redirect('/');
     }
@@ -115,7 +115,7 @@ class uploadImageController extends Controller
     public function widen(){        
         $img = Images::latest('created_at', 'desc')->first()->image;
         $image = Image::make(public_path("/storage/image/{$img}"));
-        //greyscale the image
+        //widen the image
         $image->widen(300)->save();
         return redirect('/');
     }
